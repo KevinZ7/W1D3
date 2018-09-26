@@ -1,7 +1,7 @@
 
 function counteLetters(string){
   var object = {};
-  var stringArray = string.split(' ').join('').split('');
+  var stringArray = string.split('');
 
 
   for(let j = 0; j< stringArray.length; j++){
@@ -10,8 +10,10 @@ function counteLetters(string){
       object[stringArray[j]].push(j);
     }
     else{
-      object[stringArray[j]] = [];
-      object[stringArray[j]].push(j);
+      if(!(stringArray[j] ===  ' ')){
+        object[stringArray[j]] = [];
+        object[stringArray[j]].push(j);
+      }
     }
 
   }
@@ -22,6 +24,3 @@ console.log(counteLetters('lighthouse in the house'));
 
 
 //question about the
-
-
-
