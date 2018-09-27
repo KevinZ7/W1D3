@@ -167,7 +167,39 @@ function noFollowBack(){
   return object;
 }
 
-console.log(noFollowBack());
+// console.log(noFollowBack());
+
+function socialReach(){
+  var followerChart = {};
+  var object = {};
+
+  for(var key1 in data){
+    followerChart[key1] = {
+      name: data[key1].name,
+      following: data[key1].follows,
+      followCount: data[key1].follows.length
+    }
+  }
+
+  for(var key2 in followerChart){
+
+    object[key2] = {
+      name: followerChart[key2].name,
+      reachCount: followerChart[key2].followCount
+    };
+
+    for(var i = 0;i < followerChart[key2].following.length; i++){
+      object[key2].reachCount += followerChart[followerChart[key2].following[i]].following.length;
+    }
+
+  }
+
+  return object;
+}
+
+console.log(socialReach());
+
+
 
 
 
