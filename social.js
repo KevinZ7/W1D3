@@ -97,6 +97,77 @@ function mostFollowers(){
 }
 
 // console.log(mostFollowers());
+function mostFollwers30(){
+  var counter = 0;
+  var mostFollowers;
+  var chart = followChart();
+  var keyArray2 = Object.keys(followChart());
+  var currentFollowers = chart[keyArray2[0]].followers;
+
+  for(var key in chart){
+    if(chart[key].followers > currentFollowers && data[keyArray[counter]].age > 30 ){
+      currentFollowers = chart[key].followers;
+      mostFollowers = chart[key].name;
+    }
+    else if(chart[key].followers === currentFollowers && data[keyArray[counter]].age > 30 ){
+      mostFollowers += ' ' + chart[key].name;
+    }
+    counter++;
+  }
+
+  return mostFollowers;
+}
+
+// console.log(mostFollwers30());
+
+function followingMost30(){
+  var followingMost;
+  var currentFollowing;
+
+  for(var key1 in data){
+    if(data[key1].age > 30){
+      currentFollowing = data[key1].follows.length;
+
+      break;
+    }
+  }
+
+  // console.log(currentFollowing);
+
+  for(var key in data){
+    if(data[key].follows.length > currentFollowing && data[key].age > 30){
+      currentFollowing = data[key].follows.length;
+      followingMost = data[key].name;
+    }
+  }
+
+  return followingMost;
+
+}
+// console.log(followingMost30());
+
+function noFollowBack(){
+  var object = {};
+
+  for(var key1 in data){
+    var checker2 = false;
+    for(var i = 0; i < data[key1].follows.length; i ++){
+      var checker = data[data[key1].follows[i]].follows.indexOf(key1) > -1;
+      if(checker === false){
+        checker2 = true;
+      }
+    }
+    if(checker2 === true){
+      object[key1] = {
+        name: data[key1].name
+      }
+    }
+  }
+
+  return object;
+}
+
+console.log(noFollowBack());
 
 
 
