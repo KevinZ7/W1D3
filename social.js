@@ -34,7 +34,7 @@ var data = {
 
 
 
-function followChat(){
+function followChart(){
   var object = {};
   var keyArray = Object.keys(data);
   var counter = 0;
@@ -60,4 +60,20 @@ function followChat(){
   return object;
 }
 
-console.log(followChat());
+// console.log(followChart());
+
+function followingMostPeople(){
+  var keyArray = Object.keys(data);
+  var followingMost = data[keyArray[0]].name;
+  var currentFollowing = data[keyArray[0]].follows.length;
+  for(var key in data){
+    if(data[key].follows.length > currentFollowing){
+      currentFollowing = data[key].follows.length;
+      followingMost = data[key].name;
+    }
+  }
+
+  return followingMost
+}
+
+console.log(followingMostPeople());
