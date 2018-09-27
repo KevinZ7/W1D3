@@ -31,16 +31,14 @@ var data = {
   }
 };
 
+var keyArray = Object.keys(data);
+
 
 
 
 function followChart(){
   var object = {};
-  var keyArray = Object.keys(data);
   var counter = 0;
-
-  console.log(keyArray);
-  console.log(data.length);
 
   for(var key in data){
     object[keyArray[counter]] = {
@@ -63,7 +61,6 @@ function followChart(){
 // console.log(followChart());
 
 function followingMostPeople(){
-  var keyArray = Object.keys(data);
   var followingMost = data[keyArray[0]].name;
   var currentFollowing = data[keyArray[0]].follows.length;
   for(var key in data){
@@ -76,4 +73,58 @@ function followingMostPeople(){
   return followingMost
 }
 
-console.log(followingMostPeople());
+// console.log(followingMostPeople());
+
+function mostFollowers(){
+  var counter = 0;
+  var mostFollowers;
+  var chart = followChart();
+  var keyArray2 = Object.keys(followChart());
+  var currentFollowers = chart[keyArray2[0]].followers;
+
+  for(var key in chart){
+    if(chart[key].followers > currentFollowers ){
+      currentFollowers = chart[key].followers;
+      mostFollowers = chart[key].name;
+    }
+    else if(chart[key].followers === currentFollowers ){
+      mostFollowers += ' ' + chart[key].name;
+    }
+    counter++;
+  }
+
+  return mostFollowers;
+}
+
+// console.log(mostFollowers());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
