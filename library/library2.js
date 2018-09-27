@@ -97,11 +97,7 @@ var library = {
 
 }
 
-// library.printPlaylists();
-// library.printTracks();
-// library.printPlaylist('p01');
-// library.addTrackToPlaylist('t01','p01');
-// console.log(library.playlists);
+// ls
 
 
 // FUNCTIONS TO IMPLEMENT:
